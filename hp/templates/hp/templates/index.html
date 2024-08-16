@@ -1,0 +1,154 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridlex Hiring Portal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .jumbotron {
+            background-color: #343a40;
+            color: white;
+            padding: 4rem 2rem;
+        }
+        .job-listing {
+            margin-top: 2rem;
+        }
+        .job-card {
+            margin-bottom: 1.5rem;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'register' %}">Gridlex</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Job Listings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>   
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome to Gridlex Hiring Portal</h1>
+        <p class="lead">Join our team and help shape the future of innovation.</p>
+        <a class="btn btn-primary btn-lg" href="#jobs" role="button">View Job Openings</a>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="container" id="about">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>About Gridlex</h2>
+                <p>
+                    Gridlex is a leading company in innovative solutions and cutting-edge technology. Our mission is to deliver 
+                    top-quality products and services that empower businesses and individuals alike. At Gridlex, we believe in 
+                    fostering a collaborative and inclusive work environment that encourages creativity and growth.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Job Listings Section -->
+    <div class="container job-listing" id="jobs">
+        <h2>Current Job Openings</h2>
+        <div class="row">
+            <!-- Job 1 -->
+            <div class="col-md-4">
+                <div class="card job-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Software Engineer</h5>
+                        <p class="card-text">Join our development team and work on cutting-edge projects.</p>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Job 2 -->
+            <div class="col-md-4">
+                <div class="card job-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Product Manager</h5>
+                        <p class="card-text">Lead product development and manage cross-functional teams.</p>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Job 3 -->
+            <div class="col-md-4">
+                <div class="card job-card">
+                    <div class="card-body">
+                        <h5 class="card-title">UI/UX Designer</h5>
+                        <p class="card-text">Design user-friendly interfaces and improve user experience.</p>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add more job cards as needed -->
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container" id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need further information, please don't hesitate to contact us.</p>
+        <ul>
+            <li>Email: careers@gridlex.com</li>
+            <li>Phone: +1-234-567-890</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Gridlex. All rights reserved.</p>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+{% endblock content %}

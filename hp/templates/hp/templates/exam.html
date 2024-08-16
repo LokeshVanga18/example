@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    {% if info %}
+    <ol>
+    {% for person in info%}
+    <li>User Info</li>
+    <ul>
+        <b><li>{{person.first_name | title}}</li></b>
+        <li>{{person.last_name | upper }}</li>
+        <li>{{person.email}}</li>
+    </ul>
+    {% endfor %}
+</ol>
+
+    {% endif %}
+</body>
+</html>
+{% endblock content %}
